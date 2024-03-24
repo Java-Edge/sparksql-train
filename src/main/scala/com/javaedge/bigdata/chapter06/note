@@ -1,0 +1,94 @@
+
+
+
+Spark: Driver + Executor
+
+我司的要求：使用到什么jar就加什么jar
+
+
+
+spark-shell
+spark-sql
+IDEA local
+代码打包，不管以什么模式运行在服务器
+
+Server-Client  *****
+我们在服务器上启动一个Spark应用程序的Server  7*24一直running
+客户端可以连到Server上去干活
+
+启动thriftserver  $SPARK_HOME/sbin
+./start-thriftserver.sh --master local --jars ~/software/mysql-connector-java-5.1.27-bin.jar
+
+内置了一个客户端工具  $SPARK_HOME/bin/beeline
+./beeline -u jdbc:hive2://hadoop000:10000
+
+使用代码的方式通过连接到server来执行
+
+
+使用代码来连接ThriftServer
+
+
+打成jar包，然后定时执行  d h minute10
+1）调度框架
+2）crontab
+
+
+
+
+ThriftServer  vs 例行Spark Application
+    1）
+    2）
+    3）例行：启动需要去申请资源   Server：只有启动的时候申请
+    4）Server：多个提交的作业能资源共享
+
+
+思考题：10分钟  如何设计开发一个Spark作业的Server，每次只要发一个HTTP/REST请求，那么就提交到Spark Server上去运行
+
+
+
+使用Spark代码来访问Hive的数据
+
+
+
+
+
+
+Spark SQL函数--内置函数
+常用的函数
+
+Spark SQL函数--自定义函数
+很多是和贵司业务逻辑相关的函数，这些函数如果在内置函数中没有的话，那么就需要我们自定义函数来实现
+
+三步曲：
+1）定义函数
+2）注册函数
+3）使用函数
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

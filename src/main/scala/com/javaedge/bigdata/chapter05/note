@@ -1,0 +1,27 @@
+
+
+
+
+
+
+通过Spark将各种不同数据源的数据加载成DF/DS，后续的所有操作都是基于DF/DS
+
+
+
+Data Source API标准写法
+    spark.read.format("").load()
+    df.write.format("").save("")
+
+
+
+
+
+
+
+
+
+
+
+
+
+

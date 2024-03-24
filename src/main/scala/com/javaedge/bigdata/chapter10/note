@@ -1,0 +1,119 @@
+Presto是什么
+    分布式SQL查询引擎：交互式分析查询、数据量支持GB到PB
+    商业数据仓库的交互式分析和速度的问题
+
+Presto能做什么
+    querying data where it lives
+    Hive、Cassandra、关系型数据库以及特有数据存储
+    A single Presto query can combine data from multiple sources,
+        ==>  使用Presto来做一个很有意义的事情：跨引擎查询
+            Spark SQL Data Source API
+            Apache Drill
+
+谁在使用Presto
+    Facebook
+    JD
+
+
+
+
+
+Presto是一个可以运行在多个服务器组成的分布式集群之上
+    包括一个coordinator和多个worker
+    client 发起命令到coordinator
+    coordinator进行解析、分析、执行计划
+    然后分发到worker上去执行
+
+    Presto是能够整合很多其他的大数据开源框架进行使用，是通过什么机制来完成的呢？Connector
+
+
+
+Presto的部署
+    1）下载
+        presto-server-0.226.tar.gz
+        presto-cli-0.226-executable.jar
+
+
+Presto客户端使用
+    ./presto --server ruozedata001:8080 --catalog mysql
+
+
+
+
+
+我们已经完成了Presto整合MySQL Connector、Hive Connector
+    MySQL：dept
+    Hive： emp
+
+    Presto提供了可以跨数据源进行操作的功能，我们应该就能完成一个功能：MySQL join Hive
+
+
+    这个功能是非常常见的，但是有一点不是太完美：
+        每次指定表名分析时，都需要带上connector.db.table
+        思考：Presto能否简写？我们已经学习过了Spark SQL，
+        那么能否使用已经掌握的Spark SQL的技能来开发一个支持多数据源统计分析功能的一个框架呢？？？
+
+        有问题可以在问答区、QQ群进行交流！！！
+
+    Sqoop : RDBMS ==> Hadoop
+        ==> MR/Hive/Spark/Flink ==> Output
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

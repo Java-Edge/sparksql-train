@@ -1,0 +1,117 @@
+kudu官网：kudu.apache.org
+    columnar storage manager： 列式存储管理器
+        strongly-typed columns
+
+        access: 100列     select a,b,c,d from access
+            列式：a,b,c,d
+            行式：100列
+
+        id int
+        name string
+        age int
+
+        1 zhangsan 20
+
+    Easy to administer and manage.  cloudera manager
+    Integration with  Spark
+    Tight integration with Apache Impala
+
+
+Q：有HBase之后为什么还需要KUDU
+
+    HDFS 随机读写
+    HBase 根据rowkey来进行随机读写
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+KUDU安装包下载地址：
+    https://archive.cloudera.com/cdh5/redhat/7/x86_64/cdh/5.15.1/RPMS/x86_64/
+
+
+数据和日志的存储目录规划
+sudo rm -rf /data/kudu/
+
+master元数据目录
+sudo mkdir -p /data/kudu/kudu_master_data
+
+table数据目录
+sudo mkdir -p /data/kudu/kudu_tserver_data
+
+log目录
+sudo mkdir -p /data/log/kudu
+
+修改配置文件：/etc/kudu/conf
+master.gflagfile
+--fs_wal_dir=/data/kudu/kudu_master_data
+--fs_data_dirs=/data/kudu/kudu_master_data
+
+tserver.gflagfile
+--fs_wal_dir=/data/kudu/kudu_tserver_data
+--fs_data_dirs=/data/kudu/kudu_tserver_data
+--tserver_master_addrs=hadoop000:7051
+
+启动：
+sudo ./kudu-master start
+sudo ./kudu-tserver start
+
+ps -ef|grep kudu
+WebUI
+
+
+
+KUDU API操作
+
+
+
+
+Spark整合Kudu的操作
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
